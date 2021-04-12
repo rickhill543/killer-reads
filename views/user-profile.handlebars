@@ -1,0 +1,28 @@
+<div class="user-wrapper">
+    <aside>
+        <h2>Hello, {{usernamedir}}</h2>
+        <img src="{{user.username}}" alt="User image"/>
+        <a href="./user-profile/images" class="btn-nav secondary-cta">upload profile photo</a>
+        <a href="dashboard/{{uid}}" class="btn-nav cta">create new post</a>
+    </aside>
+
+    <section class="user-posts">
+        <div class="sort">
+            <p>Sort by:</p>
+            <select name="genre" id="genre">
+                <option value="">post</option>
+                <option value="">comments</option>
+                <option value="">following</option>
+            </select>
+        </div>
+        <ol class="feed-list">
+            {{#if posts.length}}
+                {{#each posts as |post|}}
+                <li>
+                {{> post-info post}}
+                </li>
+                {{/each}}
+            {{/if}}    
+        </ol>
+    </section>
+</div>
